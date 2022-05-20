@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "3+f9qqxCMgEkKiSpct8OgS6jeEIYQz8i8WDGQnJYYg19TQj2HqHyDqlLm/SIh2lL7ixAuaks8YpmbhwtxCwAZg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lucas.abreu\\Documents\\projetos\\google-pay\\.net\\GooglePayCrypt\\GooglePayCrypt\\GooglePayCrypt.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lucas.abreu\\.nuget\\packages\\newtonsoft.json\\13.0.2-beta1\\newtonsoft.json.13.0.2-beta1.nupkg.sha512",
+    "C:\\Users\\lucas.abreu\\.nuget\\packages\\portable.bouncycastle\\1.8.6.7\\portable.bouncycastle.1.8.6.7.nupkg.sha512"
+  ],
+  "logs": []
+}

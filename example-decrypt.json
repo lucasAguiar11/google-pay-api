@@ -1,0 +1,11 @@
+{
+  "messageExpiration": "1653599900864",
+  "messageId": "AH2EjtdRdjQmyVTq_PNh-V3OtZudYLN52FNp_2zpqn5PZWQBy4e3MaTb9Uf_hZooToyKYnugoD8wucscGvBE4cOiAaq5TZvYvXLPFMNvxBUSVBEOJOrZMHmLfy2U4YomF955EnaTVHkz",
+  "paymentMethod": "CARD",
+  "paymentMethodDetails": {
+    "expirationYear": 2027,
+    "expirationMonth": 12,
+    "pan": "5555555555554444",
+    "authMethod": "PAN_ONLY"
+  }
+}

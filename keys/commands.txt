@@ -1,0 +1,35 @@
+aguiar@CLR0139154:~$ cd /mnt/c/Users/lucas.abreu/Documents/projetos/google-pay/keys
+aguiar@CLR0139154:/mnt/c/Users/lucas.abreu/Documents/projetos/google-pay/keys$ openssl ecparam -name prime256v1 -genkey -noout -out key.pem
+aguiar@CLR0139154:/mnt/c/Users/lucas.abreu/Documents/projetos/google-pay/keys$ openssl ec -in key.pem -pubout -text -noout
+read EC key
+Private-Key: (256 bit)
+priv:
+    95:d2:65:6f:6a:65:52:12:3e:4d:14:e4:34:92:c9:
+    fa:86:64:7a:28:62:12:fc:77:52:6a:28:d6:14:91:
+    2a:d4
+pub:
+    04:bf:cb:87:4e:8d:f2:ff:03:b9:cd:1d:ca:99:11:
+    58:19:17:cf:e9:52:12:31:40:ec:ce:bb:1b:70:16:
+    85:2a:67:1d:83:9e:3e:54:09:9b:ee:e3:be:69:ea:
+    2f:57:30:71:09:0d:f0:a7:b4:35:01:90:c9:be:00:
+    e2:4b:aa:34:b3
+ASN1 OID: prime256v1
+NIST CURVE: P-256
+aguiar@CLR0139154:/mnt/c/Users/lucas.abreu/Documents/projetos/google-pay/keys$ openssl ec -in key.pem -pubout -text -noout 2> /dev/null | grep "pub:" -A5 | sed 1d | xxd -r -p | base64 | paste -sd "\0" - | tr -d '\n\r ' > publicKey.txt
+aguiar@CLR0139154:/mnt/c/Users/lucas.abreu/Documents/projetos/google-pay/keys$ od -bc publicKey.txt
+0000000 102 114 057 114 150 060 066 116 070 166 070 104 165 143 060 144
+          B   L   /   L   h   0   6   N   8   v   8   D   u   c   0   d
+0000020 171 160 153 122 127 102 153 130 172 053 154 123 105 152 106 101
+          y   p   k   R   W   B   k   X   z   +   l   S   E   j   F   A
+0000040 067 115 066 067 107 063 101 127 150 123 160 156 110 131 117 145
+          7   M   6   7   G   3   A   W   h   S   p   n   H   Y   O   e
+0000060 120 154 121 112 155 053 067 152 166 155 156 161 114 061 143 167
+          P   l   Q   J   m   +   7   j   v   m   n   q   L   1   c   w
+0000100 143 121 153 116 070 113 145 060 116 121 107 121 171 142 064 101
+          c   Q   k   N   8   K   e   0   N   Q   G   Q   y   b   4   A
+0000120 064 153 165 161 116 114 115 075
+          4   k   u   q   N   L   M   =
+0000130
+aguiar@CLR0139154:/mnt/c/Users/lucas.abreu/Documents/projetos/google-pay/keys$ openssl pkcs8 -topk8 -inform PEM -outform DER -in key.pem -nocrypt | base64 | paste -sd "\0" -
+MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgldJlb2plUhI+TRTkNJLJ+oZkeihiEvx3Umoo1hSRKtShRANCAAS/y4dOjfL/A7nNHcqZEVgZF8/pUhIxQOzOuxtwFoUqZx2Dnj5UCZvu475p6i9XMHEJDfCntDUBkMm+AOJLqjSz
+aguiar@CLR0139154:/mnt/c/Users/lucas.abreu/Documents/projetos/google-pay/keys$
